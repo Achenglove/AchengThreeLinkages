@@ -5,6 +5,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/pickerview_bg_topbar">
 
+
     <Button
         android:id="@+id/btnCancel"
         android:layout_width="wrap_content"
@@ -40,4 +41,15 @@
         android:text="@string/pickerview_submit"
         android:textColor="@drawable/selector_pickerview_btn"
         android:textSize="@dimen/pickerview_topbar_btn_textsize2"/>
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <View
+            android:id="@+id/underLine"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/bgColor_overlay"/>
+    </LinearLayout>
 </RelativeLayout>

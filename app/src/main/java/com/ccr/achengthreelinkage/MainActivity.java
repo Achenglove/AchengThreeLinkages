@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                mCityPickerView.setCancelText("我是取消文字");
                 //设置取消文字颜色
                 mCityPickerView.setCancelTextColor(Color.GRAY);
+                mCityPickerView.setUnderLineColor(Color.RED);
                 //设置取消文字大小
                 mCityPickerView.setCancelTextSize(12f);
                 //设置确定文字

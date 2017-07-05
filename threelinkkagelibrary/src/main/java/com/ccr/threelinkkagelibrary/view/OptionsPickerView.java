@@ -29,6 +29,7 @@ public class OptionsPickerView <T> extends BasePickerView implements View.OnClic
     private OnOptionsSelectListener mOptionsSelectListener;
     private WheelOptions<T> mWheelOptions;
     private Button mBtnSubmit, mBtnCancel;
+    private View mUnderLine;
     private TextView mTxtTitle;
     private View mHeadView;
 
@@ -45,6 +46,7 @@ public class OptionsPickerView <T> extends BasePickerView implements View.OnClic
         mTxtTitle = (TextView) findViewById(R.id.tvTitle);
         mBtnSubmit = (Button) findViewById(R.id.btnSubmit);
         mBtnCancel = (Button) findViewById(R.id.btnCancel);
+        mUnderLine=findViewById(R.id.underLine);
         mBtnSubmit.setOnClickListener(this);
         mBtnCancel.setOnClickListener(this);
     }
@@ -155,7 +157,12 @@ public class OptionsPickerView <T> extends BasePickerView implements View.OnClic
     public void setCancelTextColor(int resId){
         mBtnCancel.setTextColor(resId);
     }
-
+    /**
+     * 设置取消文字颜色
+     */
+    public void setUnderLineColor(int resId){
+        mUnderLine.setBackgroundColor(resId);
+    }
     /**
      * 设置取消文字大小
      */
