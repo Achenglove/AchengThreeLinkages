@@ -122,7 +122,7 @@
 
 
 
--keep com.ccr.threelinkkagelibrary.bean.**{*;}
+
 -keep com.ccr.threelinkkagelibrary.utils.**{*;}
 -keep com.ccr.threelinkkagelibrary.view.**{*;}
 -keep com.ccr.threelinkkagelibrary.widget.base.**{*;}
