@@ -121,11 +121,9 @@
 #------------------------------------基本不用动区域----------------------------------------------------
 
 
-#-keep com.ccr.threelinkkagelibrary.bean.**{*;}
--keep com.ccr.threelinkkagelibrary.listener.OnSimpleCitySelectListener {*;}
--keep com.ccr.threelinkkagelibrary.model.**{*;}
+
+-keep com.ccr.threelinkkagelibrary.bean.**{*;}
 -keep com.ccr.threelinkkagelibrary.utils.**{*;}
--keep com.ccr.threelinkkagelibrary.view.**{*;}
 -keep com.ccr.threelinkkagelibrary.view.**{*;}
 -keep com.ccr.threelinkkagelibrary.widget.base.**{*;}
 -keep com.ccr.threelinkkagelibrary.widget.wheelview.**{*;}
