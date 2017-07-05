@@ -120,7 +120,8 @@
 #----------------------------------------------------------------------------
 #------------------------------------基本不用动区域----------------------------------------------------
 
--keep com.ccr.threelinkkagelibrary.adapter.**{*;}
+-keep com.ccr.threelinkkagelibrary.adapter.NumericWheelAdapter {*;}
+-keep com.ccr.threelinkkagelibrary.adapter.ArrayWheelAdapter {*;}
 -keep com.ccr.threelinkkagelibrary.bean.**{*;}
 -keep com.ccr.threelinkkagelibrary.listener.OnSimpleCitySelectListener {*;}
 -keep com.ccr.threelinkkagelibrary.model.**{*;}
