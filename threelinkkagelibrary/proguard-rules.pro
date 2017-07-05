@@ -121,9 +121,3 @@
 #------------------------------------基本不用动区域----------------------------------------------------
 
 
-
-
--keep com.ccr.threelinkkagelibrary.utils.**{*;}
--keep com.ccr.threelinkkagelibrary.view.**{*;}
--keep com.ccr.threelinkkagelibrary.widget.base.**{*;}
--keep com.ccr.threelinkkagelibrary.widget.wheelview.**{*;}
