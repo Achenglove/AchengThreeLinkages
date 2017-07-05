@@ -119,9 +119,19 @@
 }
 #----------------------------------------------------------------------------
 #------------------------------------基本不用动区域----------------------------------------------------
+-keep public com.ccr.threelinkkagelibrary.adapter.ArrayWheelAdapter { *; }
+-keep public com.ccr.threelinkkagelibrary.adapter.NumericWheelAdapter { *; }
 -keep public com.ccr.threelinkkagelibrary.bean.CardBean { *; }
 -keep public com.ccr.threelinkkagelibrary.bean.JsonBean { *; }
 -keep public com.ccr.threelinkkagelibrary.bean.ProvinceBean { *; }
 -keep public class com.ccr.threelinkkagelibrary.view.CityPickerView { *; }
 -keep public class com.ccr.threelinkkagelibrary.view.OptionsPickerView { *; }
 -keep public class com.ccr.threelinkkagelibrary.view.TimePickerView { *; }
+-keep public class com.ccr.threelinkkagelibrary.utils.GetJsonDataUtil { *; }
+-keep public class com.ccr.threelinkkagelibrary.utils.PickerViewAnimateUtil { *; }
+
+-keep public class com.ccr.threelinkkagelibrary.widget.base.BasePickerView { *; }
+-keep public class com.ccr.threelinkkagelibrary.widget.base.WheelOptions { *; }
+-keep public com.ccr.threelinkkagelibrary.widget.base.WheelTime { *; }
+
+-keep public class com.ccr.threelinkkagelibrary.widget.wheelview.WheelView { *; }
