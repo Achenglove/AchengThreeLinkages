@@ -120,4 +120,6 @@
 #----------------------------------------------------------------------------
 #------------------------------------基本不用动区域----------------------------------------------------
 
-
+-keep public class com.ccr.threelinkkagelibrary.view.CityPickerView { *; }
+-keep public class com.ccr.threelinkkagelibrary.view.OptionsPickerView { *; }
+-keep public class com.ccr.threelinkkagelibrary.view.TimePickerView { *; }
