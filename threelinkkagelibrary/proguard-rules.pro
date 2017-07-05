@@ -119,7 +119,9 @@
 }
 #----------------------------------------------------------------------------
 #------------------------------------基本不用动区域----------------------------------------------------
-
+-keep public com.ccr.threelinkkagelibrary.bean.CardBean { *; }
+-keep public com.ccr.threelinkkagelibrary.bean.JsonBean { *; }
+-keep public com.ccr.threelinkkagelibrary.bean.ProvinceBean { *; }
 -keep public class com.ccr.threelinkkagelibrary.view.CityPickerView { *; }
 -keep public class com.ccr.threelinkkagelibrary.view.OptionsPickerView { *; }
 -keep public class com.ccr.threelinkkagelibrary.view.TimePickerView { *; }
