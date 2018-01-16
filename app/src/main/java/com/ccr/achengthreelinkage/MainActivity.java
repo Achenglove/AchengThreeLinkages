@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mCityPickerView.setCancelable(true);
                 //设置滚轮字体大小
                 mCityPickerView.setTextSize(16f);
+
                 //设置标题
                 mCityPickerView.setTitle("请选择地址");
                 mCityPickerView.setTitleSize(14f);
@@ -78,19 +79,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.time:
                 //     TimePickerView 同样有上面设置样式的方法
-                TimePickerView mTimePickerView = new TimePickerView(this, TimePickerView.Type.YEAR_MONTH_DAY);
+                TimePickerView mTimePickerView = new TimePickerView(this, TimePickerView.Type.ALL);
                 // 设置是否循环
-                mTimePickerView.setCyclic(true);
+                mTimePickerView.setCyclic(false);
                 mTimePickerView.setTitle("请选择时间");
                 mTimePickerView.setTitleSize(14);
                 mTimePickerView.setCancelTextSize(14);
                 mTimePickerView.setSubmitTextSize(14);
+                mTimePickerView.setUnderLineColor(getResources().getColor(R.color.colorAccent));
                 // 设置滚轮文字大小
                 mTimePickerView.setTextSize(TimePickerView.TextSize.SMALL);
                 // 设置时间可选范围(结合 setTime 方法使用,必须在)
                 Calendar calendar = Calendar.getInstance();
                 //第一个参数是起始时间，第二个参数是结束时间
-                mTimePickerView.setRange(calendar.get(Calendar.YEAR)-30, calendar.get(Calendar.YEAR)+30);
+                mTimePickerView.setRange(calendar.get(Calendar.YEAR), calendar.get(Calendar.YEAR)+30);
                 // 设置选中时间
                 mTimePickerView.setTime(new Date());
                 mTimePickerView.setOnTimeSelectListener(new TimePickerView.OnTimeSelectListener() {

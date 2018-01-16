@@ -17,13 +17,14 @@ import java.util.Date;
 /**
  * 在此写用途
  * 时间选择器
+ *
  * @Author: Acheng
  * @Email: 345887272@qq.com
  * @Date: 2017-05-25 15:14
  * @Version: V1.0 <描述当前版本功能>
  */
 
-public class TimePickerView extends BasePickerView implements View.OnClickListener{
+public class TimePickerView extends BasePickerView implements View.OnClickListener {
     public enum Type {
         ALL, YEAR_MONTH_DAY, HOURS_MINS, MONTH_DAY_HOUR_MIN, YEAR_MONTH
     }// 四种选择模式，年月日时分，年月日，时分，月日时分
@@ -32,6 +33,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
 
     private View mHeadView;
     private TextView mTxtTitle;
+    private View underLine;
     private WheelTime mWheelTime;
     private Button mBtnSubmit, mBtnCancel;
     private OnTimeSelectListener mTimeSelectListener;
@@ -52,6 +54,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
         mTxtTitle = (TextView) findViewById(R.id.tvTitle);
         mBtnSubmit = (Button) findViewById(R.id.btnSubmit);
         mBtnCancel = (Button) findViewById(R.id.btnCancel);
+        underLine = findViewById(R.id.underLine);
         mBtnSubmit.setOnClickListener(this);
         mBtnCancel.setOnClickListener(this);
     }
@@ -77,8 +80,9 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
     /**
      * 设置可以选择的时间范围
      * 要在setTime之前调用才有效果
+     *
      * @param startYear 开始年份
-     * @param endYear 结束年份
+     * @param endYear   结束年份
      */
     public void setRange(int startYear, int endYear) {
         mWheelTime.setStartYear(startYear);
@@ -87,6 +91,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
 
     /**
      * 设置选中时间
+     *
      * @param date 时间
      */
     public void setTime(Date date) {
@@ -105,6 +110,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
 
     /**
      * 设置是否循环滚动
+     *
      * @param cyclic 是否循环
      */
     public void setCyclic(boolean cyclic) {
@@ -114,85 +120,90 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
     /**
      * 设置头部背景颜色
      */
-    public void setHeadBackgroundColor(int color){
+    public void setHeadBackgroundColor(int color) {
         mHeadView.setBackgroundColor(color);
     }
 
     /**
      * 设置标题
      */
-    public void setTitle(String title){
+    public void setTitle(String title) {
         mTxtTitle.setText(title);
     }
 
     /**
      * 设置标题颜色
      */
-    public void setTitleColor(int resId){
+    public void setTitleColor(int resId) {
         mTxtTitle.setTextColor(resId);
     }
 
     /**
      * 设置标题大小
      */
-    public void setTitleSize(float size){
+    public void setTitleSize(float size) {
         mTxtTitle.setTextSize(size);
     }
 
     /**
      * 设置取消文字
      */
-    public void setCancelText(String text){
+    public void setCancelText(String text) {
         mBtnCancel.setText(text);
     }
 
     /**
      * 设置取消文字颜色
      */
-    public void setCancelTextColor(int resId){
+    public void setCancelTextColor(int resId) {
         mBtnCancel.setTextColor(resId);
     }
 
     /**
      * 设置取消文字大小
      */
-    public void setCancelTextSize(float size){
+    public void setCancelTextSize(float size) {
         mBtnCancel.setTextSize(size);
     }
 
     /**
      * 设置确认文字
      */
-    public void setSubmitText(String text){
+    public void setSubmitText(String text) {
         mBtnSubmit.setText(text);
     }
 
     /**
      * 设置确认文字颜色
      */
-    public void setSubmitTextColor(int resId){
+    public void setSubmitTextColor(int resId) {
         mBtnSubmit.setTextColor(resId);
     }
 
     /**
      * 设置确认文字大小
      */
-    public void setSubmitTextSize(float size){
+    public void setSubmitTextSize(float size) {
         mBtnSubmit.setTextSize(size);
     }
 
     /**
      * 设置滚动文字大小
      */
-    public void setTextSize(float size){
+    public void setTextSize(float size) {
         mWheelTime.setTextSize(size);
     }
-
+    /**
+     * 设置下划线颜色
+     */
+    public void setUnderLineColor(int resId) {
+        underLine.setBackgroundColor(resId);
+    }
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if(id == R.id.btnSubmit){
-            if(mTimeSelectListener != null){
+        if (id == R.id.btnSubmit) {
+            if (mTimeSelectListener != null) {
                 try {
                     Date date = WheelTime.dateFormat.parse(mWheelTime.getTime());
                     mTimeSelectListener.onTimeSelect(date);
@@ -201,15 +212,15 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
                 }
             }
             dismiss();
-        }else if(id == R.id.btnCancel){
+        } else if (id == R.id.btnCancel) {
             dismiss();
         }
     }
 
-    public class TextSize{
-        public static final float BIG       = 6f;
-        public static final float DEFAULT   = 5f;
-        public static final float SMALL     = 4f;
+    public class TextSize {
+        public static final float BIG = 6f;
+        public static final float DEFAULT = 5f;
+        public static final float SMALL = 4f;
     }
 
     public interface OnTimeSelectListener {
