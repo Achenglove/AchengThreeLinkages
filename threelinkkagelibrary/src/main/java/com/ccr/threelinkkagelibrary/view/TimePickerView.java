@@ -107,7 +107,19 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
         int minute = calendar.get(Calendar.MINUTE);
         mWheelTime.setPicker(year, month, day, hours, minute);
     }
-
+    public void setMaxMonth(Date date,int maxMonth) {
+        Calendar calendar = Calendar.getInstance();
+        if (date == null)
+            calendar.setTimeInMillis(System.currentTimeMillis());
+        else
+            calendar.setTime(date);
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int hours = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        mWheelTime.setMaxmonthPicker(year, month, day, hours, minute,maxMonth);
+    }
     /**
      * 设置是否循环滚动
      *
