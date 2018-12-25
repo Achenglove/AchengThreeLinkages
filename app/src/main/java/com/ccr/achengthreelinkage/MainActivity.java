@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.city:
                 CityPickerView mCityPickerView = new CityPickerView(this);
-
                 // 设置点击外部是否消失
                 mCityPickerView.setCancelable(true);
                 //设置滚轮字体大小
@@ -94,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //第一个参数是起始时间，第二个参数是结束时间
                 mTimePickerView.setRange(calendar.get(Calendar.YEAR), calendar.get(Calendar.YEAR)+30);
                 // 设置选中时间
-                mTimePickerView.setTime(new Date());
+                mTimePickerView.setMaxMonth(new Date(),5);
                 mTimePickerView.setOnTimeSelectListener(new TimePickerView.OnTimeSelectListener() {
                     @Override
                     public void onTimeSelect(Date date) {

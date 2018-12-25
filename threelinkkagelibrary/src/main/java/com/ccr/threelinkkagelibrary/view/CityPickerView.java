@@ -1,6 +1,8 @@
 package com.ccr.threelinkkagelibrary.view;
 
 import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 
 import com.ccr.threelinkkagelibrary.bean.JsonBean;
 import com.ccr.threelinkkagelibrary.listener.OnCitySelectListener;
@@ -40,17 +42,22 @@ public class CityPickerView extends OptionsPickerView {
     private static final int MSG_LOAD_DATA = 0x0001;
     private static final int MSG_LOAD_SUCCESS = 0x0002;
     private static final int MSG_LOAD_FAILED = 0x0003;
+    private String dataString="",type="1";//type 1本地json 2网络json
 
     public CityPickerView(Context context) {
         super(context);
         mContext = context;
         // 初始化Json对象
-        initJsonData();
+        //initJsonData();
         // 初始化Json数据
         initJsonData();
         initCitySelect();
     }
 
+    public void setData(String type,String str){
+        dataString=str;
+        this.type=type;
+    }
     private void initCitySelect() {
         setTitle("选择城市");
         setPicker(mListProvince, mListCity, mListArea, true);
@@ -85,7 +92,16 @@ public class CityPickerView extends OptionsPickerView {
          * */
         String JsonData = new GetJsonDataUtil().getJson(mContext,"province.json");//获取assets目录下的json文件数据
 
-        ArrayList<JsonBean> jsonBean = parseData(JsonData);//用Gson 转成实体
+
+        String finalJsonData="";
+
+        if(type.equals("1")){
+            finalJsonData=JsonData;
+        }else{
+            finalJsonData=dataString;
+        }
+        Log.d("Acheng",finalJsonData);
+        ArrayList<JsonBean> jsonBean = parseData(finalJsonData);//用Gson 转成实体
 
         /**
          * 添加省份数据
