@@ -16,6 +16,7 @@ import java.util.ArrayList;
 /**
  * 在此写用途
  * 城市选择器
+ *
  * @Author: Acheng
  * @Email: 345887272@qq.com
  * @Date: 2017-05-25 15:12
@@ -34,7 +35,6 @@ public class CityPickerView extends OptionsPickerView {
 //    private JSONObject mJsonObj;
 
 
-
     private ArrayList<JsonBean> mListProvince = new ArrayList<>();
     private ArrayList<ArrayList<String>> mListCity = new ArrayList<>();
     private ArrayList<ArrayList<ArrayList<String>>> mListArea = new ArrayList<>();
@@ -42,7 +42,7 @@ public class CityPickerView extends OptionsPickerView {
     private static final int MSG_LOAD_DATA = 0x0001;
     private static final int MSG_LOAD_SUCCESS = 0x0002;
     private static final int MSG_LOAD_FAILED = 0x0003;
-    private String dataString="",type="1";//type 1本地json 2网络json
+    private String dataString = "", type = "1";//type 1本地json 2网络json
 
     public CityPickerView(Context context) {
         super(context);
@@ -54,10 +54,13 @@ public class CityPickerView extends OptionsPickerView {
         initCitySelect();
     }
 
-    public void setData(String type,String str){
-        dataString=str;
-        this.type=type;
+    public void setData(String type, String str) {
+        dataString = str;
+        this.type = type;
+        initJsonData();
+        initCitySelect();
     }
+
     private void initCitySelect() {
         setTitle("选择城市");
         setPicker(mListProvince, mListCity, mListArea, true);
@@ -66,10 +69,10 @@ public class CityPickerView extends OptionsPickerView {
         setOnOptionsSelectListener(new OptionsPickerView.OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int option1, int option2, int option3) {
-                if(mOnCitySelectListener != null){
-                    if(mListCity.size() > option1 && mListCity.get(option1).size() > option2){
-                        if(mListArea.size() > option1 && mListArea.get(option1).size() > option2
-                                && mListArea.get(option1).get(option2).size() > option3){
+                if (mOnCitySelectListener != null) {
+                    if (mListCity.size() > option1 && mListCity.get(option1).size() > option2) {
+                        if (mListArea.size() > option1 && mListArea.get(option1).size() > option2
+                                && mListArea.get(option1).get(option2).size() > option3) {
                             String prov = mListProvince.get(option1).getPickerViewText();
                             String city = mListCity.get(option1).get(option2);
                             String area = mListArea.get(option1).get(option2).get(option3);
@@ -90,17 +93,19 @@ public class CityPickerView extends OptionsPickerView {
          * 关键逻辑在于循环体
          *
          * */
-        String JsonData = new GetJsonDataUtil().getJson(mContext,"province.json");//获取assets目录下的json文件数据
+        String JsonData = new GetJsonDataUtil().getJson(mContext, "province.json");//获取assets目录下的json文件数据
 
 
-        String finalJsonData="";
-
-        if(type.equals("1")){
-            finalJsonData=JsonData;
-        }else{
-            finalJsonData=dataString;
+        String finalJsonData = "";
+        Log.d("Acheng", "type:" + type);
+        if (type.equals("1")) {
+            finalJsonData = JsonData;
+        } else {
+            finalJsonData = dataString;
+            Log.d("Acheng", finalJsonData);
         }
-        Log.d("Acheng",finalJsonData);
+
+
         ArrayList<JsonBean> jsonBean = parseData(finalJsonData);//用Gson 转成实体
 
         /**
@@ -111,11 +116,11 @@ public class CityPickerView extends OptionsPickerView {
          */
         mListProvince = jsonBean;
 
-        for (int i=0;i<jsonBean.size();i++){//遍历省份
+        for (int i = 0; i < jsonBean.size(); i++) {//遍历省份
             ArrayList<String> CityList = new ArrayList<>();//该省的城市列表（第二级）
             ArrayList<ArrayList<String>> Province_AreaList = new ArrayList<>();//该省的所有地区列表（第三极）
 
-            for (int c=0; c<jsonBean.get(i).getCityList().size(); c++){//遍历该省份的所有城市
+            for (int c = 0; c < jsonBean.get(i).getCityList().size(); c++) {//遍历该省份的所有城市
                 String CityName = jsonBean.get(i).getCityList().get(c).getName();
                 CityList.add(CityName);//添加城市
 
@@ -123,11 +128,11 @@ public class CityPickerView extends OptionsPickerView {
 
                 //如果无地区数据，建议添加空字符串，防止数据为null 导致三个选项长度不匹配造成崩溃
                 if (jsonBean.get(i).getCityList().get(c).getArea() == null
-                        ||jsonBean.get(i).getCityList().get(c).getArea().size()==0) {
+                        || jsonBean.get(i).getCityList().get(c).getArea().size() == 0) {
                     City_AreaList.add("");
-                }else {
+                } else {
 
-                    for (int d=0; d < jsonBean.get(i).getCityList().get(c).getArea().size(); d++) {//该城市对应地区所有数据
+                    for (int d = 0; d < jsonBean.get(i).getCityList().get(c).getArea().size(); d++) {//该城市对应地区所有数据
                         String AreaName = jsonBean.get(i).getCityList().get(c).getArea().get(d);
 
                         City_AreaList.add(AreaName);//添加该城市所有地区数据
