@@ -44,6 +44,15 @@ public class CityPickerView extends OptionsPickerView {
     private static final int MSG_LOAD_FAILED = 0x0003;
     private String dataString = "", type = "1";//type 1本地json 2网络json
 
+    public CityPickerView(Context context) {
+        super(context);
+        mContext = context;
+        // 初始化Json对象
+        //initJsonData();
+        // 初始化Json数据
+        initJsonData();
+        initCitySelect();
+    }
     public CityPickerView(Context context,String ty,String str) {
         super(context);
         mContext = context;
@@ -55,7 +64,6 @@ public class CityPickerView extends OptionsPickerView {
         initJsonData();
         initCitySelect();
     }
-
     public void setData(String type, String str) {
         dataString = str;
         this.type = type;
