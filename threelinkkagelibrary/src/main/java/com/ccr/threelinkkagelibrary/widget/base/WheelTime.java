@@ -3,6 +3,9 @@ package com.ccr.threelinkkagelibrary.widget.base;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.ccr.threelinkkagelibrary.R;
 import com.ccr.threelinkkagelibrary.adapter.NumericWheelAdapter;
@@ -375,6 +378,16 @@ public class WheelTime {
                 wv_day.setVisibility(View.GONE);
                 wv_hours.setVisibility(View.GONE);
                 wv_mins.setVisibility(View.GONE);
+            case YEAR:
+//
+//                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(500, ViewGroup.LayoutParams.WRAP_CONTENT);
+//                wv_year.setLayoutParams(params);
+
+                textSize = textSize * 4;
+                wv_day.setVisibility(View.GONE);
+                wv_hours.setVisibility(View.GONE);
+                wv_mins.setVisibility(View.GONE);
+                wv_month.setVisibility(View.GONE);
         }
         wv_day.setTextSize(textSize);
         wv_month.setTextSize(textSize);

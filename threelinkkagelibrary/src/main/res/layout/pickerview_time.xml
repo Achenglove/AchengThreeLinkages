@@ -11,8 +11,9 @@
 
     <LinearLayout
         android:id="@+id/timepicker"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:background="@android:color/white"
         android:orientation="horizontal">
 

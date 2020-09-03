@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AchengThreeLinkage.iml" filepath="$PROJECT_DIR$/AchengThreeLinkage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AchengThreeLinkages.iml" filepath="$PROJECT_DIR$/AchengThreeLinkages.iml" group="AchengThreeLinkages" />
+      <module fileurl="file://$PROJECT_DIR$/app/AchengThreeLinkages-app.iml" filepath="$PROJECT_DIR$/app/AchengThreeLinkages-app.iml" group="AchengThreeLinkages/app" />
+      <module fileurl="file://$PROJECT_DIR$/threelinkkagelibrary/AchengThreeLinkages-threelinkkagelibrary.iml" filepath="$PROJECT_DIR$/threelinkkagelibrary/AchengThreeLinkages-threelinkkagelibrary.iml" group="AchengThreeLinkages/threelinkkagelibrary" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/threelinkkagelibrary/threelinkkagelibrary.iml" filepath="$PROJECT_DIR$/threelinkkagelibrary/threelinkkagelibrary.iml" />
     </modules>

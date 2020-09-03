@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.time:
                 //     TimePickerView 同样有上面设置样式的方法
-                TimePickerView mTimePickerView = new TimePickerView(this, TimePickerView.Type.ALL);
+                TimePickerView mTimePickerView = new TimePickerView(this, TimePickerView.Type.YEAR);
                 // 设置是否循环
                 mTimePickerView.setCyclic(false);
                 mTimePickerView.setTitle("请选择时间");
